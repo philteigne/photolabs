@@ -10,7 +10,7 @@ const sampleDataForTopicListItem = {
 
 const TopicListItem = (props) => {
 
-  const {topic, key} = props
+  const {topic} = props
   console.log(topic)
 
   return (
