@@ -2,6 +2,7 @@ import React from 'react';
 
 import PhotoList from 'components/PhotoList';
 import './App.scss';
+import TopicList from 'components/TopicList';
 
 
 // const photos = new Array(sampleDataForPhotoListItem, sampleDataForPhotoListItem, sampleDataForPhotoListItem)
@@ -9,6 +10,7 @@ import './App.scss';
 // Note: Rendering a single component to build components in isolation
 const App = () => (
   <div className="App">
+    <TopicList />
     {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
     <PhotoList/>
   </div>
