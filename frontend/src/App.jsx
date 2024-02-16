@@ -14,11 +14,16 @@ const sampleDataForPhotoListItem = {
   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
 
+const photos = new Array(sampleDataForPhotoListItem, sampleDataForPhotoListItem, sampleDataForPhotoListItem)
+const listOfPhotos = photos.map((photo, index) => {
+  return <PhotoListItem photo={photo} key={index} />
+})
+
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   return (
     <div className="App">
-      <PhotoListItem sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>
+      {listOfPhotos}
     </div>
   );
 };
