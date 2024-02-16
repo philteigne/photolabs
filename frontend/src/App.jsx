@@ -15,12 +15,14 @@ const sampleDataForPhotoListItem = {
 };
 
 const photos = new Array(sampleDataForPhotoListItem, sampleDataForPhotoListItem, sampleDataForPhotoListItem)
-const listOfPhotos = photos.map((photo, index) => {
-  return <PhotoListItem photo={photo} key={index} />
-})
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  
+  const listOfPhotos = photos.map((photo, index) => {
+    return <PhotoListItem photo={photo} key={index} />
+  })
+  
   return (
     <div className="App">
       {listOfPhotos}
