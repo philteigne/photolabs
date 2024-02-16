@@ -1,8 +1,9 @@
 import React from 'react';
 
 import PhotoList from 'components/PhotoList';
-import './App.scss';
 import TopNavigationBar from 'components/TopNavigationBar';
+import './App.scss';
+import HomeRoute from 'routes/HomeRoute';
 
 
 // const photos = new Array(sampleDataForPhotoListItem, sampleDataForPhotoListItem, sampleDataForPhotoListItem)
@@ -10,9 +11,7 @@ import TopNavigationBar from 'components/TopNavigationBar';
 // Note: Rendering a single component to build components in isolation
 const App = () => (
   <div className="App">
-    <TopNavigationBar />
-    {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-    <PhotoList/>
+    <HomeRoute />
   </div>
 )
 
