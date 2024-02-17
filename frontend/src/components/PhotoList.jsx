@@ -9,9 +9,9 @@ const PhotoList = (props) => {
 
   return (
     <ul className="photo-list">
-      {photos.map((photo, index) => {
+      {photos.map((photo) => {
         return(
-          <PhotoListItem photo={photo} key={index} favPhoto={favPhoto} favToggle={favToggle}/>
+          <PhotoListItem photo={photo} key={photo.id} favPhoto={favPhoto} favToggle={favToggle}/>
         )
       })}
     </ul>
