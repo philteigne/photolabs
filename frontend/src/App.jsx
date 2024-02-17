@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
@@ -20,7 +20,29 @@ const App = () => {
 
   const [favPhoto, setFavState] = useState([]);
 
+    // useEffect(() => {
+    //   // The code that we want to run
+    //   const index = favPhoto.indexOf(photoID)
+  
+    //   // photo is in favourites
+    //   if (index > -1) {
+    //     setFavState(favPhoto.filter(photo => photo != photoID))
+    //   }
+  
+    //   // photo is not in favourites
+    //   if (index === -1) {
+    //     setFavState([...favPhoto, photoID])
+    //   }
+  
+    //   // Optional return function
+    //   return () => {
+    //     console.log("I am being cleaned up")
+    //   }
+    // }, [favPhoto]); // The dependancy Array
+
+
   const favToggle = (photoID) => {
+    // console.log("favToggle")
 
     const index = favPhoto.indexOf(photoID)
 
