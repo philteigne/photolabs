@@ -5,7 +5,7 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const { photos, updateFavPhotoList, photoSelect } = props
+  const { photos, state, updateToFavPhotoIds, onPhotoSelect } = props
   
 
   return (
@@ -15,8 +15,9 @@ const PhotoList = (props) => {
           <PhotoListItem
             photo={photo}
             key={photo.id}
-            updateFavPhotoList={updateFavPhotoList}
-            photoSelect={photoSelect}
+            state={state}
+            updateToFavPhotoIds={updateToFavPhotoIds}
+            onPhotoSelect={onPhotoSelect}
           />
         )
       })}

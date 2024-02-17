@@ -8,20 +8,20 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
 
-  const {closePhotoDetailsModal, updateFavPhotoList, selectedPhoto} = props
+  const {state, onClosePhotoDetailsModal, updateToFavPhotoIds, selectedPhoto} = props
 
   const similarPhotos = Object.values(selectedPhoto.similar_photos)
 
   return (
     <div className="photo-details-modal">
     
-      <button className="photo-details-modal__close-button" onClick={() => closePhotoDetailsModal.onClosePhotoDetailsModal()}>
+      <button className="photo-details-modal__close-button" onClick={() => onClosePhotoDetailsModal()}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
         <div>
-          <PhotoFavButton id={selectedPhoto.id} updateFavPhotoList={updateFavPhotoList}/>
+          <PhotoFavButton id={selectedPhoto.id} updateToFavPhotoIds={updateToFavPhotoIds} state={state}/>
           <img
           src={selectedPhoto.urls.full}
           alt="Selected photograph"
@@ -42,7 +42,7 @@ const PhotoDetailsModal = (props) => {
         
         <span className="photo-details-modal__header">Similar Photos</span>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} updateFavPhotoList={updateFavPhotoList}/> 
+        <PhotoList photos={similarPhotos} state={state} updateToFavPhotoIds={updateToFavPhotoIds}/> 
         </div>
       </div>
         

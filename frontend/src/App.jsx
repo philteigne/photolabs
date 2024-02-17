@@ -17,6 +17,7 @@ const App = () => {
   const [favPhotoList, setFavPhotoListState] = useState([]);
 
   // state
+  const state = { modalDisplayState, selectedPhoto, favPhotoList }
 
   // onPhotoSelect
   // set modalDisplayState to true
@@ -43,8 +44,6 @@ const App = () => {
       setFavPhotoListState([...favPhotoList, photoID])
     }
   }
-
-  // onLoadTopic
   
   // onClosePhotoDetailsModal
   // set modalDisplayState to false
@@ -52,6 +51,8 @@ const App = () => {
     setModalDisplayState(false);
   }
 
+
+  console.log("favPhotoList", favPhotoList);
   const updateFavPhotoList = {favPhotoList, updateToFavPhotoIds}
   const closePhotoDetailsModal = {modalDisplayState, onClosePhotoDetailsModal}
   const photoSelect = {selectedPhoto, modalDisplayState, onPhotoSelect}
@@ -61,12 +62,14 @@ const App = () => {
     <HomeRoute
       photos={photos}
       topics={topics}
-      updateFavPhotoList={updateFavPhotoList}
-      photoSelect={photoSelect}
+      state={state}
+      updateToFavPhotoIds={updateToFavPhotoIds}
+      onPhotoSelect={onPhotoSelect}
     />
     {modalDisplayState && <PhotoDetailsModal
-                            closePhotoDetailsModal={closePhotoDetailsModal}
-                            updateFavPhotoList={updateFavPhotoList}
+                            state={state}
+                            onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+                            updateToFavPhotoIds={updateToFavPhotoIds}
                             selectedPhoto={selectedPhoto}
                           />}
   </div>

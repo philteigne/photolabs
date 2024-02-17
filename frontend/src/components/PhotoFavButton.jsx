@@ -6,11 +6,9 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  const {id, updateFavPhotoList} = props
+  const {id, state, updateToFavPhotoIds} = props
 
-  const {favPhotoList, updateToFavPhotoIds} = updateFavPhotoList
-
-  const favPhotoState = favPhotoList.includes(id) ? true : false;
+  const favPhotoState = state.favPhotoList.includes(id) ? true : false;
 
   return (
     <div className="photo-list__fav-icon" onClick={() => updateToFavPhotoIds(id)}>

@@ -6,17 +6,17 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics, updateFavPhotoList, photoSelect } = props
+  const { photos, topics, state, updateToFavPhotoIds, onPhotoSelect } = props
 
-  const favPhotoList = updateFavPhotoList.favPhotoList;
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favPhotoList={favPhotoList}/>
+      <TopNavigationBar topics={topics} favPhotoList={state.favPhotoList}/>
       <PhotoList
         photos={photos}
-        updateFavPhotoList={updateFavPhotoList}
-        photoSelect={photoSelect}
+        state={state}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        onPhotoSelect={onPhotoSelect}
       />
     </div>
   );
