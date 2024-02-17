@@ -17,7 +17,10 @@ const PhotoListItem = (props) => {
         src={photo.urls.regular}
         alt="Selected photograph"
         className="photo-list__image"
-        onClick={() => modalControls.toggleModal('photo')}
+        onClick={() => {
+          modalControls.toggleModal(true, photo);
+          }
+        }
         ></img> 
         <div className="photo-list__user-details">
           <img
