@@ -11,6 +11,7 @@ const PhotoDetailsModal = (props) => {
   const {modalControls, photos, favControls} = props
 
   const photo = modalControls.modalDisplayState.photo
+  const similarPhotos = Object.values(photo.similar_photos)
 
   return (
     <div className="photo-details-modal">
@@ -42,7 +43,7 @@ const PhotoDetailsModal = (props) => {
         
         <span className="photo-details-modal__header">Similar Photos</span>
         <div className="photo-details-modal__images">
-        <PhotoList photos={photos} favControls={favControls} modalControls={modalControls}/> 
+        <PhotoList photos={similarPhotos} favControls={favControls} modalControls={modalControls}/> 
         </div>
       </div>
         
