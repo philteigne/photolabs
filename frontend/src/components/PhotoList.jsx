@@ -5,13 +5,19 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const {photos, favControls, modalControls} = props
+  const { photos, updateFavPhotoList, photoSelect } = props
+  
 
   return (
     <ul className="photo-list">
       {photos.map((photo) => {
         return(
-          <PhotoListItem photo={photo} key={photo.id} favControls={favControls} modalControls={modalControls}/>
+          <PhotoListItem
+            photo={photo}
+            key={photo.id}
+            updateFavPhotoList={updateFavPhotoList}
+            photoSelect={photoSelect}
+          />
         )
       })}
     </ul>

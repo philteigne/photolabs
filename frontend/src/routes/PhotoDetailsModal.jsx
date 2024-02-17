@@ -8,42 +8,41 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
 
-  const {modalControls, photos, favControls} = props
+  const {closePhotoDetailsModal, updateFavPhotoList, selectedPhoto} = props
 
-  const photo = modalControls.modalDisplayState.photo
-  const similarPhotos = Object.values(photo.similar_photos)
+  const similarPhotos = Object.values(selectedPhoto.similar_photos)
 
   return (
     <div className="photo-details-modal">
     
-      <button className="photo-details-modal__close-button" onClick={() => modalControls.toggleModal()}>
+      <button className="photo-details-modal__close-button" onClick={() => closePhotoDetailsModal.onClosePhotoDetailsModal()}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
         <div>
-          <PhotoFavButton id={photo.id} favControls={favControls}/>
+          <PhotoFavButton id={selectedPhoto.id} updateFavPhotoList={updateFavPhotoList}/>
           <img
-          src={photo.urls.full}
+          src={selectedPhoto.urls.full}
           alt="Selected photograph"
           className="photo-details-modal__image"
           ></img> 
           <div className="photo-list__user-details">
             <img
-            src={photo.user.profile}
+            src={selectedPhoto.user.profile}
             alt="Photographer profile image"
             className="photo-list__user-profile"
             ></img>
             <div className="photo-list__user-info">
-              <p>{photo.user.name}</p>
-              <p className="photo-list__user-location">{photo.location.city}, {photo.location.country}</p>
+              <p>{selectedPhoto.user.name}</p>
+              <p className="photo-list__user-location">{selectedPhoto.location.city}, {selectedPhoto.location.country}</p>
             </div>
           </div>
         </div>
         
         <span className="photo-details-modal__header">Similar Photos</span>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} favControls={favControls} modalControls={modalControls}/> 
+        <PhotoList photos={similarPhotos} updateFavPhotoList={updateFavPhotoList}/> 
         </div>
       </div>
         

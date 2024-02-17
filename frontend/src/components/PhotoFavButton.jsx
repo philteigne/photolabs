@@ -6,16 +6,16 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  const {id, favControls} = props
+  const {id, updateFavPhotoList} = props
 
-  const {favToggle, favPhoto} = favControls
+  const {favPhotoList, updateToFavPhotoIds} = updateFavPhotoList
 
-  const favState = favPhoto.includes(id) ? true : false;
+  const favPhotoState = favPhotoList.includes(id) ? true : false;
 
   return (
-    <div className="photo-list__fav-icon" onClick={() => favToggle(id)}>
+    <div className="photo-list__fav-icon" onClick={() => updateToFavPhotoIds(id)}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon className="photo-list__fav-icon-svg" selected={favState}/>
+        <FavIcon className="photo-list__fav-icon-svg" selected={favPhotoState}/>
       </div>
     </div>
   );

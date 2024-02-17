@@ -5,9 +5,9 @@ import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 
 const TopNavigationBar = (props) => {
-  const {topics, favPhoto} = props
+  const {topics, favPhotoList} = props
 
-  const isFavPhotoExist = favPhoto.length !== 0 ? true : false;
+  const isFavPhotoExist = favPhotoList.length !== 0 ? true : false;
 
   return (
     <div className="top-nav-bar">
