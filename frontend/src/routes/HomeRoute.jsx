@@ -6,7 +6,7 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics } = props
+  const { photos, topics, modalControls } = props
 
   const [favPhoto, setFavState] = useState([]);
 
@@ -30,7 +30,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} favPhoto={favPhoto}/>
-      <PhotoList photos={photos} favPhoto={favPhoto} favToggle={favToggle}/>
+      <PhotoList photos={photos} favPhoto={favPhoto} favToggle={favToggle} modalControls={modalControls}/>
     </div>
   );
 };
