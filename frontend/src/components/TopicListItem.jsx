@@ -5,7 +5,6 @@ import "../styles/TopicListItem.scss";
 const TopicListItem = (props) => {
 
   const {topic} = props
-  console.log(topic)
 
   return (
     <div className="topic-list__item">
