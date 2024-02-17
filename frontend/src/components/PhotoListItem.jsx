@@ -12,7 +12,7 @@ const PhotoListItem = (props) => {
   return(
     <div className="photo-list">
       <div className="photo-list__item" key={id}>
-      <PhotoFavButton id={id} favPhoto={favPhoto} favToggle={favToggle}/>
+        <PhotoFavButton id={id} favPhoto={favPhoto} favToggle={favToggle}/>
         <img
         src={photo.urls.regular}
         alt="Selected photograph"
