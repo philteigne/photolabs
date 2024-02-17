@@ -18,10 +18,29 @@ const App = () => {
 
   const modalControls = {modalDisplayState, toggleModal};
 
+  const [favPhoto, setFavState] = useState([]);
+
+  const favToggle = (photoID) => {
+
+    const index = favPhoto.indexOf(photoID)
+
+    // photo is in favourites
+    if (index > -1) {
+      setFavState(favPhoto.filter(photo => photo != photoID))
+    }
+
+    // photo is not in favourites
+    if (index === -1) {
+      setFavState([...favPhoto, photoID])
+    }
+  }
+
+  const favControls = {favPhoto, favToggle}
+
   return(
   <div className="App">
-    <HomeRoute photos={photos} topics={topics} modalControls={modalControls}/>
-    {modalDisplayState.state && <PhotoDetailsModal modalControls={modalControls} />}
+    <HomeRoute photos={photos} topics={topics} modalControls={modalControls} favControls={favControls}/>
+    {modalDisplayState.state && <PhotoDetailsModal photos={photos} modalControls={modalControls} favControls={favControls}/>}
   </div>
   )
 }

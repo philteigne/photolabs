@@ -5,14 +5,14 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const {photo, favPhoto, favToggle, modalControls} = props
+  const {photo, favControls, modalControls} = props
 
   const id = photo.id
   
   return(
     <div className="photo-list">
       <div className="photo-list__item" key={id}>
-        <PhotoFavButton id={id} favPhoto={favPhoto} favToggle={favToggle}/>
+        <PhotoFavButton id={id} favControls={favControls}/>
         <img
         src={photo.urls.regular}
         alt="Selected photograph"

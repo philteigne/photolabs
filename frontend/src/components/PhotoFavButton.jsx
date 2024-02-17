@@ -6,7 +6,9 @@ import '../styles/PhotoFavButton.scss';
 
 const PhotoFavButton = (props) => {
 
-  const {id, favPhoto, favToggle} = props
+  const {id, favControls} = props
+
+  const {favToggle, favPhoto} = favControls
 
   const favState = favPhoto.includes(id) ? true : false;
 

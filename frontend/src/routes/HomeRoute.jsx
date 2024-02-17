@@ -6,31 +6,14 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics, modalControls } = props
+  const { photos, topics, modalControls, favControls } = props
 
-  const [favPhoto, setFavState] = useState([]);
-
-  const favToggle = (photoID) => {
-
-    const index = favPhoto.indexOf(photoID)
-
-    // photo is in favourites
-    if (index > -1) {
-      setFavState(favPhoto.filter(photo => photo != photoID))
-    }
-
-    // photo is not in favourites
-    if (index === -1) {
-      setFavState([...favPhoto, photoID])
-    }
-  }
-
-  console.log(favPhoto);
+  const favPhoto = favControls.favPhoto;
 
   return (
     <div className="home-route">
       <TopNavigationBar topics={topics} favPhoto={favPhoto}/>
-      <PhotoList photos={photos} favPhoto={favPhoto} favToggle={favToggle} modalControls={modalControls}/>
+      <PhotoList photos={photos} favControls={favControls} modalControls={modalControls}/>
     </div>
   );
 };
