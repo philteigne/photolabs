@@ -14,9 +14,11 @@ const App = () => {
   const {
     state,
     onPhotoSelect,
-    updateToFavPhotoIds,
+    setFavPhotoListState,
     onClosePhotoDetailsModal,
   } = useApplicationData();
+
+  // console.log(!state.modalDisplayState == false)
 
   return(
   <div className="App">
@@ -24,13 +26,13 @@ const App = () => {
       photos={photos}
       topics={topics}
       state={state}
-      updateToFavPhotoIds={updateToFavPhotoIds}
+      updateToFavPhotoIds={setFavPhotoListState}
       onPhotoSelect={onPhotoSelect}
     />
-    {state.modalDisplayState && <PhotoDetailsModal
+    {!state.modalDisplayState && <PhotoDetailsModal
                             state={state}
                             onClosePhotoDetailsModal={onClosePhotoDetailsModal}
-                            updateToFavPhotoIds={updateToFavPhotoIds}
+                            updateToFavPhotoIds={setFavPhotoListState}
                           />}
   </div>
   )

@@ -7,7 +7,7 @@ import PhotoList from 'components/PhotoList';
 
 
 const PhotoDetailsModal = (props) => {
-
+  
   const {state, onClosePhotoDetailsModal, updateToFavPhotoIds} = props
 
   const selectedPhoto = state.selectedPhoto;

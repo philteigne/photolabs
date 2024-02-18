@@ -1,13 +1,31 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 
 export default function useApplicationData() {
 
+  const updateToFavPhotoIdsReducer = (state, action) => {
+    const index = state.indexOf(action);
+
+    // photo is in favourites
+    if (index > -1) {
+      return favPhotoList.filter(photo => photo != photoID)
+    }
+    
+    // photo is not in favourites
+    if (index === -1) {
+      return [...state, action]
+    }
+  }
+
+  const selectedPhotoReducer = (state, action) => {
+    return action;
+  }
+  
   // DECLARE STATES
-  const [modalDisplayState, setModalDisplayState] = useState(false);
+  const [modalDisplayState, setModalDisplayState] = useState([]);
 
   const [selectedPhoto, setSelectedPhoto] = useState({});
   
-  const [favPhotoList, setFavPhotoListState] = useState([]);
+  const [favPhotoList, setFavPhotoListState] = useReducer(updateToFavPhotoIdsReducer, []);
 
 
   // state
@@ -17,27 +35,11 @@ export default function useApplicationData() {
   // set modalDisplayState to true
   // set selectedPhoto to the selected photo object
   const onPhotoSelect = (photo) => {
+    console.log("photo selected")
     setModalDisplayState(true);
     setSelectedPhoto(photo);
   }
 
-
-  // updateToFavPhotoIds
-  // add selected photo to favPhoto list
-  const updateToFavPhotoIds = (photoID) => {
-
-    const index = favPhotoList.indexOf(photoID)
-
-    // photo is in favourites
-    if (index > -1) {
-      setFavPhotoListState(favPhotoList.filter(photo => photo != photoID))
-    }
-
-    // photo is not in favourites
-    if (index === -1) {
-      setFavPhotoListState([...favPhotoList, photoID])
-    }
-  }
   
   // onClosePhotoDetailsModal
   // set modalDisplayState to false
@@ -49,7 +51,7 @@ export default function useApplicationData() {
     {
       state,
       onPhotoSelect,
-      updateToFavPhotoIds,
+      setFavPhotoListState,
       onClosePhotoDetailsModal
     }
   )
