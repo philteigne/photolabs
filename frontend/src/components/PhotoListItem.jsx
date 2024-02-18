@@ -5,19 +5,19 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { photo, state, updateToFavPhotoIds, onPhotoSelect } = props
+  const { photo, state, dispatch } = props
 
   const id = photo.id
   
   return(
     <div className="photo-list">
       <div className="photo-list__item" key={id}>
-        <PhotoFavButton id={id} state={state} updateToFavPhotoIds={updateToFavPhotoIds}/>
+        <PhotoFavButton photo={photo} id={id} state={state} dispatch={dispatch}/>
         <img
           src={photo.urls.regular}
           alt="Selected photograph"
           className="photo-list__image"
-          onClick={() => onPhotoSelect(photo)}
+          onClick={() => dispatch({type:'SELECT_PHOTO', payload: photo})}
         ></img> 
         <div className="photo-list__user-details">
           <img

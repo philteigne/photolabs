@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React} from 'react';
 import TopNavigationBar from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
@@ -6,7 +6,7 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics, state, updateToFavPhotoIds, onPhotoSelect } = props
+  const { photos, topics, state, dispatch } = props
 
 
   return (
@@ -15,8 +15,7 @@ const HomeRoute = (props) => {
       <PhotoList
         photos={photos}
         state={state}
-        updateToFavPhotoIds={updateToFavPhotoIds}
-        onPhotoSelect={onPhotoSelect}
+        dispatch={dispatch}
       />
     </div>
   );

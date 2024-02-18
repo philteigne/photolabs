@@ -8,7 +8,7 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
   
-  const {state, onClosePhotoDetailsModal, updateToFavPhotoIds} = props
+  const {state, dispatch} = props
 
   const selectedPhoto = state.selectedPhoto;
 
@@ -17,13 +17,13 @@ const PhotoDetailsModal = (props) => {
   return (
     <div className="photo-details-modal">
     
-      <button className="photo-details-modal__close-button" onClick={() => onClosePhotoDetailsModal()}>
+      <button className="photo-details-modal__close-button" onClick={() => dispatch({type: "CLOSE_MODAL"})}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
         <div>
-          <PhotoFavButton id={selectedPhoto.id} updateToFavPhotoIds={updateToFavPhotoIds} state={state}/>
+          <PhotoFavButton id={selectedPhoto.id} dispatch={dispatch} state={state}/>
           <img
           src={selectedPhoto.urls.full}
           alt="Selected photograph"
@@ -44,7 +44,7 @@ const PhotoDetailsModal = (props) => {
         
         <span className="photo-details-modal__header">Similar Photos</span>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} state={state} updateToFavPhotoIds={updateToFavPhotoIds}/> 
+        <PhotoList photos={similarPhotos} state={state} dispatch={dispatch}/> 
         </div>
       </div>
         

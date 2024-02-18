@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react';
+import {React, useReducer} from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
@@ -6,17 +6,12 @@ import HomeRoute from 'routes/HomeRoute';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import useApplicationData from 'hooks/useApplicationData';
+import { reducer, INITIAL_STATE } from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
 
-  const {
-    state,
-    onPhotoSelect,
-    setFavPhotoListState,
-    onClosePhotoDetailsModal,
-  } = useApplicationData();
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
 
   // console.log(!state.modalDisplayState == false)
 
@@ -26,13 +21,11 @@ const App = () => {
       photos={photos}
       topics={topics}
       state={state}
-      updateToFavPhotoIds={setFavPhotoListState}
-      onPhotoSelect={onPhotoSelect}
+      dispatch={dispatch}
     />
-    {!state.modalDisplayState && <PhotoDetailsModal
+    {state.modalDisplayState && <PhotoDetailsModal
                             state={state}
-                            onClosePhotoDetailsModal={onClosePhotoDetailsModal}
-                            updateToFavPhotoIds={setFavPhotoListState}
+                            dispatch={dispatch}
                           />}
   </div>
   )
