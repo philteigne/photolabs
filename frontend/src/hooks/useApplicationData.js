@@ -5,7 +5,8 @@ export const INITIAL_STATE = {
   selectedPhoto: {},
   favPhotoList: [],
   photoData: [],
-  topicData: []
+  topicData: [],
+  selectedTopic: "",
 }
 
 export const ACTIONS = {
@@ -15,6 +16,7 @@ export const ACTIONS = {
   CLOSE_MODAL: "CLOSE_MODAL",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
 }
 
 export function reducer(state, action) {
@@ -27,7 +29,7 @@ export function reducer(state, action) {
     case ACTIONS.FAV_PHOTO_REMOVED:
       return {
         ...state,
-        favPhotoList: state.favPhotoList.filter(photo => photo != action.payload),
+        favPhotoList: state.favPhotoList.filter(photo => photo !== action.payload),
       }
     case ACTIONS.SELECT_PHOTO:
       return {
@@ -50,6 +52,11 @@ export function reducer(state, action) {
         ...state,
         topicData: action.payload
       }
+    case ACTIONS.GET_PHOTOS_BY_TOPIC:
+      return {
+        ...state,
+        photoData: action.payload
+      }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -57,10 +64,3 @@ export function reducer(state, action) {
     }
   
   }
-  
-export function fetcher(state, action) {
-  useEffect(() => {
-    console.log("photos", photos)
-  })
-}
-
