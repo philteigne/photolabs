@@ -8,7 +8,6 @@ const PhotoFavButton = (props) => {
 
   const {id, state, dispatch} = props
 
-  console.log(state)
   const favPhotoState = state.favPhotoList.includes(id) ? true : false;
 
   return (

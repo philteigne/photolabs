@@ -5,12 +5,12 @@ import PhotoListItem from "./PhotoListItem";
 
 const PhotoList = (props) => {
 
-  const { photos, state, dispatch } = props
+  const { state, dispatch } = props
   
 
   return (
     <ul className="photo-list">
-      {photos.map((photo) => {
+      {state.photoData.map((photo) => {
         return(
           <PhotoListItem
             photo={photo}

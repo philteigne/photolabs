@@ -6,14 +6,13 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const { photos, topics, state, dispatch } = props
+  const { state, dispatch } = props
 
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={topics} favPhotoList={state.favPhotoList}/>
+      <TopNavigationBar topics={state.topicData} favPhotoList={state.favPhotoList}/>
       <PhotoList
-        photos={photos}
         state={state}
         dispatch={dispatch}
       />
