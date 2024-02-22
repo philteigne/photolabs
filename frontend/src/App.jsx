@@ -4,17 +4,15 @@ import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
-import { reducer, INITIAL_STATE, ACTIONS } from 'hooks/useApplicationData';
+import { ACTIONS, useApplicationData } from 'hooks/useApplicationData';
 
 export const API_CALL_URL = "http://localhost:8001/api/"
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
-  // state contents:
-  // modalDisplayState, selectedPhoto, favPhotoList, photoData, topicData, selectedTopic
-  
+
+  const { state, dispatch } = useApplicationData();
+
   // fetch photos from backend
   useEffect(() => {
     fetch(`${API_CALL_URL}photos`)
@@ -28,7 +26,7 @@ const App = () => {
     .then((res) => res.json())
     .then(data => dispatch({type:"SET_TOPIC_DATA", payload: data}))
   }, [])
-
+  
   return(
   <div className="App">
     <HomeRoute

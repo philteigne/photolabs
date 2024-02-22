@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useReducer} from 'react';
 
 export const INITIAL_STATE = {
   modalDisplayState: false,
@@ -64,3 +64,17 @@ export function reducer(state, action) {
     }
   
   }
+
+export function useApplicationData() {
+
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+  // state contents:
+  // modalDisplayState, selectedPhoto, favPhotoList, photoData, topicData, selectedTopic
+
+  return(
+    {
+      state,
+      dispatch
+    }
+  )
+}
