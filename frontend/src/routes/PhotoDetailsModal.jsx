@@ -6,9 +6,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({ favPhotoList, photoData, dispatch }) => {
-
-  const selectedPhoto = selectedPhoto;
+const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch }) => {
 
   const similarPhotos = Object.values(selectedPhoto.similar_photos)
 
@@ -40,9 +38,9 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, dispatch }) => {
           </div>
         </div>
         
-        <span className="photo-details-modal__header">Similar Photos</span>
+        <h3 className="photo-details-modal__header">Similar Photos</h3>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} photoData={photoData} dispatch={dispatch}/> 
+        <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch}/> 
         </div>
       </div>
         

@@ -4,7 +4,7 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 
-const PhotoFavButton = ({ id, favPhotoList, dispatch }) => {
+const PhotoFavButton = ({ id, dispatch, favPhotoList }) => {
 
   const favPhotoState = favPhotoList.includes(id) ? true : false;
 

@@ -40,6 +40,7 @@ const App = () => {
     {state.modalDisplayState && <PhotoDetailsModal
                                   favPhotoList={state.favPhotoList}
                                   photoData={state.photoData}
+                                  selectedPhoto={state.selectedPhoto}
                                   dispatch={dispatch}
                                 />}
   </div>

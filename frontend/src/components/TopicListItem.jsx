@@ -8,12 +8,12 @@ const TopicListItem = ({ topic, dispatch }) => {
 
   return (
     <div className="topic-list__item">
-      <span onClick={() => {
+      <h3 onClick={() => {
           fetch(`${API_CALL_URL}topics/photos/${topic.id}/`)
           .then((res) => res.json())
           .then(data => dispatch({type: "GET_PHOTOS_BY_TOPIC", payload: data}))
       }
-      }>{topic.title}</span>
+      }>{topic.title}</h3>
     </div>
   );
 };
