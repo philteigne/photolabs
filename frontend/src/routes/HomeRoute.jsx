@@ -4,16 +4,14 @@ import PhotoList from 'components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = (props) => {
-
-  const { state, dispatch } = props
-
+const HomeRoute = ({ photoData, topicData, favPhotoList, dispatch }) => {
 
   return (
     <div className="home-route">
-      <TopNavigationBar topics={state.topicData} favPhotoList={state.favPhotoList} dispatch={dispatch}/>
+      <TopNavigationBar topics={topicData} favPhotoList={favPhotoList} dispatch={dispatch}/>
       <PhotoList
-        state={state}
+        photoData={photoData}
+        favPhotoList={favPhotoList}
         dispatch={dispatch}
       />
     </div>

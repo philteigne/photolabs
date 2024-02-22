@@ -3,16 +3,14 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
-
-  const { photo, state, dispatch } = props
+const PhotoListItem = ({ photo, favPhotoList, dispatch }) => {
 
   const id = photo.id
   
   return(
     <div className="photo-list">
       <div className="photo-list__item" key={id}>
-        <PhotoFavButton photo={photo} id={id} state={state} dispatch={dispatch}/>
+        <PhotoFavButton photo={photo} id={id} favPhotoList={favPhotoList} dispatch={dispatch}/>
         <img
           src={photo.urls.regular}
           alt="Selected photograph"
