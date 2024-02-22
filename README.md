@@ -1,5 +1,9 @@
 # react-photolabs
-The PhotoLabs project for the Web Development React course programming.
+The PhotoLabs project for the Web Development React course programming. Photolabs is a single-page photo viewing app. Users can browse the collection of photos displayed from a PostgreSQL database. 
+
+![PhotoLabs Splash Page](./src/PhotoLabs.JPG)
+
+Users can like photos, select photos to view in a focused modal, filter by topic, and browse similar images.
 
 # Photolabs
 

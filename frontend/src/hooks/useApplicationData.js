@@ -67,7 +67,7 @@ export function reducer(state, action) {
 
 export function useApplicationData() {
 
-  const [state, dispatch] = useReducer(reducer, INITIAL_STATE)
+  const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   // state contents:
   // modalDisplayState, selectedPhoto, favPhotoList, photoData, topicData, selectedTopic
 

@@ -1,4 +1,4 @@
-import {React, useReducer, useEffect} from 'react';
+import {React, useEffect} from 'react';
 
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
@@ -18,14 +18,14 @@ const App = () => {
     fetch(`${API_CALL_URL}photos`)
     .then((res) => res.json())
     .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
-  }, [])
+  }, []);
 
   // fetch topics from backend
   useEffect(() => {
     fetch(`${API_CALL_URL}topics/`)
     .then((res) => res.json())
     .then(data => dispatch({type:"SET_TOPIC_DATA", payload: data}))
-  }, [])
+  }, []);
   
   return(
   <div className="App">
