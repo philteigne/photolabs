@@ -7,6 +7,7 @@ export const INITIAL_STATE = {
   photoData: [],
   topicData: [],
   selectedTopic: "",
+  dark: "-dark"
 }
 
 export const ACTIONS = {
@@ -16,7 +17,9 @@ export const ACTIONS = {
   CLOSE_MODAL: "CLOSE_MODAL",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
-  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC"
+  GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC",
+  SET_DARK_MODE_ON: "SET_DARK_MODE_ON",
+  SET_DARK_MODE_OFF: "SET_DARK_MODE_OFF",
 }
 
 export function reducer(state, action) {
@@ -56,6 +59,16 @@ export function reducer(state, action) {
       return {
         ...state,
         photoData: action.payload
+      }
+    case ACTIONS.SET_DARK_MODE_ON:
+      return {
+        ...state,
+        dark: "-dark"
+      }
+    case ACTIONS.SET_DARK_MODE_OFF:
+      return {
+        ...state,
+        dark: ""
       }
     default:
       throw new Error(

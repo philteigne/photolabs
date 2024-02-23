@@ -2,10 +2,21 @@
   margin: 24px;
   padding: 8px;
   border-width: 0.5px;
-  border-color: lightgray;
   border-style: solid;
   border-radius: 8px;
   max-width: fit-content;
+}
+
+.photo-list__item-color {
+  border-color: lightgray;
+}
+.photo-list__item-color-dark {
+  border-color: rgb(59, 68, 75);
+  background-color: rgb(35,43,43);
+
+  p {
+    color: rgb(251, 250, 245);
+  }
 }
 
 .photo-list__image {
@@ -41,6 +52,9 @@
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
+}
+.photo-list__user-info-dark {
+  color: rgb(251, 250, 245);
 }
 
 .photo-list__user-location {

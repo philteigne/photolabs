@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ({ photoData, favPhotoList, dispatch }) => {
+const PhotoList = ({ photoData, favPhotoList, dispatch, dark }) => {
 
   return (
     <ul className="photo-list">
@@ -14,6 +14,7 @@ const PhotoList = ({ photoData, favPhotoList, dispatch }) => {
             key={photo.id}
             favPhotoList={favPhotoList}
             dispatch={dispatch}
+            dark={dark}
           />
         )
       })}

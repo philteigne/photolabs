@@ -1,6 +1,4 @@
 .photo-details-modal {
-  background-color: white;
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
   position: absolute;
   top: 55%;
   left: 50%;
@@ -11,10 +9,17 @@
   border-radius: 12px;
 }
 
-.photo-details-modal__close-button {
+.photo-details-modal-color {
   background-color: white;
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+}
+.photo-details-modal-color-dark {
+  background-color: rgb(35, 43, 43);
+  box-shadow: 0 0 0 50vmax rgba(39, 39, 39, 0.5);
+}
+
+.photo-details-modal__close-button {
   border: none;
-  color: white;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -22,6 +27,15 @@
   cursor: pointer;
   margin-left: 16px;
   margin-top: 16px;
+}
+
+.photo-details-modal__close-button-color {
+  background-color: white;
+  color: white;
+}
+.photo-details-modal__close-button-color-dark {
+  background-color: rgb(35, 43, 43);
+  color: rgb(35, 43, 43);
 }
 
 .photo-details-modal__images {
@@ -33,6 +47,7 @@
   max-width: 95%;
   border-radius: 8px;
 }
+
 
 .photo-details-modal__top-bar {
   display: flex;
@@ -51,15 +66,23 @@
 .photo-details-modal__header {
   font-size: 18px;
   font-weight: 500;
-  color: #1e1e1e;
   margin-top: 24px;
   margin-bottom: 24px;
   width: 90%;
 }
 
+.photo-details-modal__header-color {
+  color: #1e1e1e;
+}
+.photo-details-modal__header-color-dark {
+  color: rgb(251, 250, 245);
+  
+}
+
 .photo-details-modal__photographer-location {
   color: #838383;
 }
+
 .photo-details-modal__photographer-profile {
   object-fit: cover;
   border-radius: 100%;

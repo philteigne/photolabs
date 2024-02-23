@@ -3,7 +3,6 @@
 }
 
 .fav-badge__count { 
-background-color: rgb(0, 0, 0);
 width: 20px;
 height: 20px;
   border-radius: 99px;
@@ -15,10 +14,25 @@ height: 20px;
 
   span {
     text-align: center;
-    color: white;
     width: 100%;
     font-weight: 500;
     position: absolute;
     font-size: 16px;
+  }
+}
+
+.fav-badge__color {
+  background-color: rgb(0, 0, 0);
+
+  span {
+    color: white;
+  }
+}
+
+.fav-badge__color-dark {
+  background-color: rgb(251, 250, 245);
+
+  span {
+    color: rgb(35, 43, 43);
   }
 }

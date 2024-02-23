@@ -4,9 +4,6 @@
   justify-content: space-between;
   padding: 8px;
   align-items: center;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
   height: 72px;
 }
 
@@ -14,7 +11,30 @@
   text-decoration: overline;
   font-weight: 500;
   font-size: 24px;
-  color: #111;
   text-underline-position: auto;
   margin-left: 24px;
+}
+
+.top-nav-bar-color {
+  -webkit-box-shadow: 0 4px 6px -6px #222;
+  -moz-box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 4px 6px -6px #222;
+}
+.top-nav-bar-color-dark {
+  -webkit-box-shadow: 0 4px 6px -6px rgb(251, 250, 245);
+  -moz-box-shadow: 0 4px 6px -6px rgb(251, 250, 245);
+  box-shadow: 0 4px 6px -6px rgb(251, 250, 245);
+  background-color: rgb(35, 43, 43);
+}
+
+.top-nav-bar__logo-color {
+  color: #111;
+}
+.top-nav-bar__logo-color-dark {
+  color: rgb(251, 250, 245);
+}
+
+.top-nav-bar__icons {
+  display: flex;
+  align-items: center;
 }

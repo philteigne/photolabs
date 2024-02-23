@@ -27,20 +27,26 @@ const App = () => {
     .then(data => dispatch({type:"SET_TOPIC_DATA", payload: data}))
   }, []);
   
+  console.log("state.dark", state.dark)
+
   return(
-  <div className="App">
-    <HomeRoute
-      photoData={state.photoData}
-      topicData={state.topicData}
-      favPhotoList={state.favPhotoList}
-      dispatch={dispatch}
-    />
-    {state.modalDisplayState && <PhotoDetailsModal
-                                  favPhotoList={state.favPhotoList}
-                                  photoData={state.photoData}
-                                  selectedPhoto={state.selectedPhoto}
-                                  dispatch={dispatch}
-                                />}
+  <div className={`App-color${state.dark}`}>
+    <div className="App">
+      <HomeRoute
+        photoData={state.photoData}
+        topicData={state.topicData}
+        favPhotoList={state.favPhotoList}
+        dispatch={dispatch}
+        dark={state.dark}
+      />
+      {state.modalDisplayState && <PhotoDetailsModal
+                                    favPhotoList={state.favPhotoList}
+                                    photoData={state.photoData}
+                                    selectedPhoto={state.selectedPhoto}
+                                    dispatch={dispatch}
+                                    dark={state.dark}
+                                  />}
+    </div>
   </div>
   )
 }
