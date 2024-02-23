@@ -41,7 +41,7 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, d
         
         <h3 className={`photo-details-modal__header photo-details-modal__header-color${dark}`}>Similar Photos</h3>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch}/> 
+        <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch} dark={dark}/> 
         </div>
       </div>
         

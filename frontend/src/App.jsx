@@ -30,23 +30,21 @@ const App = () => {
   console.log("state.dark", state.dark)
 
   return(
-  <div className={`App-color${state.dark}`}>
-    <div className="App">
-      <HomeRoute
-        photoData={state.photoData}
-        topicData={state.topicData}
-        favPhotoList={state.favPhotoList}
-        dispatch={dispatch}
-        dark={state.dark}
-      />
-      {state.modalDisplayState && <PhotoDetailsModal
-                                    favPhotoList={state.favPhotoList}
-                                    photoData={state.photoData}
-                                    selectedPhoto={state.selectedPhoto}
-                                    dispatch={dispatch}
-                                    dark={state.dark}
-                                  />}
-    </div>
+  <div className={`App App-color${state.dark}`}>
+    <HomeRoute
+      photoData={state.photoData}
+      topicData={state.topicData}
+      favPhotoList={state.favPhotoList}
+      dispatch={dispatch}
+      dark={state.dark}
+    />
+    {state.modalDisplayState && <PhotoDetailsModal
+                                  favPhotoList={state.favPhotoList}
+                                  photoData={state.photoData}
+                                  selectedPhoto={state.selectedPhoto}
+                                  dispatch={dispatch}
+                                  dark={state.dark}
+                                />}
   </div>
   )
 }
