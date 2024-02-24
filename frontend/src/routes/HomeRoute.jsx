@@ -4,7 +4,7 @@ import PhotoList from 'components/PhotoList';
 
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ photoData, topicData, favPhotoList, dispatch, dark, modalDisplayState }) => {
+const HomeRoute = ({ photoData, topicData, favPhotoList, dispatch, dark }) => {
 
   return (
     <div className="home-route">
@@ -14,7 +14,6 @@ const HomeRoute = ({ photoData, topicData, favPhotoList, dispatch, dark, modalDi
         favPhotoList={favPhotoList}
         dispatch={dispatch}
         dark={dark}
-        modalDisplayState={modalDisplayState}
       />
     </div>
   );

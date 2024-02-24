@@ -37,7 +37,6 @@ const App = () => {
       favPhotoList={state.favPhotoList}
       dispatch={dispatch}
       dark={state.dark}
-      modalDisplayState={state.modalDisplayState}
     />
     {state.modalDisplayState && <PhotoDetailsModal
                                   favPhotoList={state.favPhotoList}

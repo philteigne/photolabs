@@ -12,12 +12,13 @@ const TopNavigationBar = ({ topics, favPhotoList, dispatch, dark }) => {
   return (
     <div className={`top-nav-bar top-nav-bar-color${dark}`}>
       <h2 className={`top-nav-bar__logo top-nav-bar__logo-color${dark}`}>PhotoLabs</h2>
-      <TopicList topics={topics} dispatch={dispatch} dark={dark}/>
       <div className="top-nav-bar__icons">
+        <TopicList topics={topics} dispatch={dispatch} dark={dark}/>
         <div onClick={() => dark ? dispatch({type: 'SET_DARK_MODE_OFF'}) : dispatch({type: 'SET_DARK_MODE_ON'})}>
         <DarkMode dark={dark} />
         </div>
         <FavBadge isFavPhotoExist={isFavPhotoExist} />
+
       </div>
     </div>
   )

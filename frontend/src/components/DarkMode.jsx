@@ -3,7 +3,7 @@ import React from 'react';
 const DarkMode =({ dark }) => {
 
   return(
-  <svg fill={dark ? 'rgb(251, 250, 245)' : 'rgb(14, 17, 17)'}  viewBox="0 0 380 250" width='40px' height='40px'>
+  <svg fill={dark ? 'rgb(251, 250, 245)' : 'rgb(14, 17, 17)'}  viewBox="0 0 300 220" width='30px' height='32px'>
     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
     <g id="SVGRepo_iconCarrier">
