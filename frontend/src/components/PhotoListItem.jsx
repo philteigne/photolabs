@@ -3,18 +3,19 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, favPhotoList, dispatch, dark }) => {
+const PhotoListItem = ({ photo, favPhotoList, dispatch, dark, modalDisplayState }) => {
 
   const id = photo.id
+  const modalState = modalDisplayState ? "-modal" : "";
 
   return(
     <div className="photo-list">
       <div className={`photo-list__item photo-list__item-color${dark}`} key={id}>
         <PhotoFavButton photo={photo} id={id} favPhotoList={favPhotoList} dispatch={dispatch}/>
         <img
-          src={photo.urls.regular}
+          src={photo.urls.full}
           alt="Selected photograph"
-          className="photo-list__image"
+          className={`photo-list__image${modalState}`}
           onClick={() => dispatch({type:'SELECT_PHOTO', payload: photo})}
         ></img> 
         <div className="photo-list__user-details">

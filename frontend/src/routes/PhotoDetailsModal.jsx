@@ -7,7 +7,7 @@ import PhotoFavButton from 'components/PhotoFavButton';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, dark }) => {
+const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, dark, modalDisplayState }) => {
 
   const similarPhotos = Object.values(selectedPhoto.similar_photos)
 
@@ -18,8 +18,8 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, d
         <img src={dark ? closeSymbolDark : closeSymbol} alt="close symbol" />
       </button>
 
-      <div className="photo-details-modal__images">
-        <div>
+      <div>
+        <div className="photo-details-modal__selected-photo">
           <PhotoFavButton id={selectedPhoto.id} dispatch={dispatch} favPhotoList={favPhotoList}/>
           <img
           src={selectedPhoto.urls.full}
@@ -41,7 +41,7 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, d
         
         <h3 className={`photo-details-modal__header photo-details-modal__header-color${dark}`}>Similar Photos</h3>
         <div className="photo-details-modal__images">
-        <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch} dark={dark}/> 
+          <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch} dark={dark} modalDisplayState={modalDisplayState}/> 
         </div>
       </div>
         

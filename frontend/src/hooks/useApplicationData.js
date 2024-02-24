@@ -7,7 +7,7 @@ export const INITIAL_STATE = {
   photoData: [],
   topicData: [],
   selectedTopic: "",
-  dark: "-dark"
+  dark: ""
 }
 
 export const ACTIONS = {

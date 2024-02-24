@@ -3,10 +3,12 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-const PhotoList = ({ photoData, favPhotoList, dispatch, dark }) => {
+const PhotoList = ({ photoData, favPhotoList, dispatch, dark, modalDisplayState }) => {
+
+  const modalState = modalDisplayState ? "-modal" : "";
 
   return (
-    <ul className="photo-list">
+    <ul className={`photo-list${modalState}`}>
       {photoData.map((photo) => {
         return(
           <PhotoListItem
@@ -15,6 +17,7 @@ const PhotoList = ({ photoData, favPhotoList, dispatch, dark }) => {
             favPhotoList={favPhotoList}
             dispatch={dispatch}
             dark={dark}
+            modalDisplayState={modalDisplayState}
           />
         )
       })}
