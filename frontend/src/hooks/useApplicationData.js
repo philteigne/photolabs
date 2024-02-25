@@ -20,6 +20,7 @@ export const ACTIONS = {
   GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC",
   SET_DARK_MODE_ON: "SET_DARK_MODE_ON",
   SET_DARK_MODE_OFF: "SET_DARK_MODE_OFF",
+  SUBMIT_PHOTO: "SUBMIT_PHOTO"
 }
 
 export function reducer(state, action) {
@@ -69,6 +70,11 @@ export function reducer(state, action) {
       return {
         ...state,
         dark: ""
+      }
+    case ACTIONS.SUBMIT_PHOTO:
+      return {
+        ...state,
+        photoData: [...state.photoData, action.payload]
       }
     default:
       throw new Error(
