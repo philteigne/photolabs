@@ -14,7 +14,7 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, d
   return (
     <div className={`photo-details-modal photo-details-modal-color${dark}`}>
     
-      <button className={`photo-details-modal__close-button photo-details-modal__close-button-color${dark}`} onClick={() => dispatch({type: "CLOSE_MODAL"})}>
+      <button className={`photo-details-modal__close-button photo-details-modal__close-button-color${dark}`} onClick={() => dispatch({type: "CLOSE_PHOTO_MODAL"})}>
         <img src={dark ? closeSymbolDark : closeSymbol} alt="close symbol" />
       </button>
 

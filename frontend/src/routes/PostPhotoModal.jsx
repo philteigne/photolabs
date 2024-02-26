@@ -26,7 +26,7 @@ const PostPhotoModal = ({dispatch, dark}) => {
   return(
     <div className={`post-photo-modal post-photo-modal-color${dark}`}>
 
-      <button className={`photo-details-modal__close-button photo-details-modal__close-button-color${dark}`} onClick={() => dispatch({type: "CLOSE_MODAL"})}>
+      <button className={`photo-details-modal__close-button photo-details-modal__close-button-color${dark}`} onClick={() => dispatch({type: "CLOSE_SUBMIT_PHOTO_MODAL"})}>
         <img src={dark ? closeSymbolDark : closeSymbol} alt="close symbol" />
       </button>
 
@@ -67,7 +67,6 @@ const PostPhotoModal = ({dispatch, dark}) => {
         </div>
         <button type="submit" onClick={(e) => {
           e.preventDefault();
-          console.log(submitPhotoObject);
           dispatch({ type: "SUBMIT_PHOTO", payload: submitPhotoObject})
         }}>Submit</button>
       </form>

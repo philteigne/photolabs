@@ -19,7 +19,7 @@ const TopNavigationBar = ({ topics, favPhotoList, dispatch, dark }) => {
           <DarkMode dark={dark} />
         </div>
         <FavBadge isFavPhotoExist={isFavPhotoExist} />
-        <p>+</p>
+        <p onClick={() => dispatch({type: 'OPEN_SUBMIT_PHOTO_MODAL'})}>+</p>
 
       </div>
     </div>

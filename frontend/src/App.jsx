@@ -28,8 +28,7 @@ const App = () => {
     .then(data => dispatch({type:"SET_TOPIC_DATA", payload: data}))
   }, []);
   
-  console.log("state.dark", state.dark)
-  const postPhotoModalDisplayState = true;
+  console.log("state.postPhotoModalDisplayState", state.postPhotoModalDisplayState)
 
   return(
   <div className={`App App-color${state.dark}`}>
@@ -48,7 +47,7 @@ const App = () => {
                                   dark={state.dark}
                                   modalDisplayState={state.modalDisplayState}
                                 />}
-    {postPhotoModalDisplayState && <PostPhotoModal dispatch={dispatch} dark={state.dark} />}
+    {state.postPhotoModalDisplayState && <PostPhotoModal dispatch={dispatch} dark={state.dark} />}
   </div>
   )
 }

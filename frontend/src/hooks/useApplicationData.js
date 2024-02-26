@@ -1,7 +1,8 @@
-import {useReducer} from 'react';
+import {useReducer, useEffect} from 'react';
 
 export const INITIAL_STATE = {
   modalDisplayState: false,
+  postPhotoModalDisplayState: false,
   selectedPhoto: {},
   favPhotoList: [],
   photoData: [],
@@ -14,7 +15,9 @@ export const ACTIONS = {
   FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
   FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
   SELECT_PHOTO: "SELECT_PHOTO",
-  CLOSE_MODAL: "CLOSE_MODAL",
+  CLOSE_PHOTO_MODAL: "CLOSE_PHOTO_MODAL",
+  CLOSE_SUBMIT_PHOTO_MODAL: "CLOSE_SUBMIT_PHOTO_MODAL",
+  OPEN_SUBMIT_PHOTO_MODAL: "OPEN_SUBMIT_PHOTO_MODAL",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   GET_PHOTOS_BY_TOPIC: "GET_PHOTOS_BY_TOPIC",
@@ -41,10 +44,20 @@ export function reducer(state, action) {
         modalDisplayState: true,
         selectedPhoto: action.payload,
       }
-    case ACTIONS.CLOSE_MODAL:
+    case ACTIONS.CLOSE_PHOTO_MODAL:
       return {
         ...state,
         modalDisplayState: false,
+      }
+    case ACTIONS.CLOSE_SUBMIT_PHOTO_MODAL:
+      return {
+        ...state,
+        postPhotoModalDisplayState: false,
+      }
+    case ACTIONS.OPEN_SUBMIT_PHOTO_MODAL:
+      return {
+        ...state,
+        postPhotoModalDisplayState: true,
       }
     case ACTIONS.SET_PHOTO_DATA:
       return {
@@ -72,10 +85,21 @@ export function reducer(state, action) {
         dark: ""
       }
     case ACTIONS.SUBMIT_PHOTO:
-      return {
-        ...state,
-        photoData: [...state.photoData, action.payload]
-      }
+      console.log(JSON.stringify(action.payload));
+      return(
+      useEffect((e) => {
+        e.preventDefault();
+        fetch("http://localhost:8001/api/submit-photo", {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(action.payload),
+        })
+          .then(() => console.log("made it here"))
+      }, [])
+      )
+          // .then(() => fetch(`http://localhost:8001/api/photos`))
+          // .then((res) => res.json())
+          // .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
