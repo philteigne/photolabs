@@ -112,16 +112,16 @@ export function useApplicationData() {
 
   // check if a photo has been submitted
   console.log("state", state.photoSubmissionState)
-  useEffect(() => {
+  // useEffect(() => {
 
-      fetch(`${API_CALL_URL}submit-photo`, {
-        method: 'POST',
-        body: JSON.stringify(state.photoSubmissionState),
-      })
-      .then()
-      .catch(err => console.log(err))
+  //     fetch(`${API_CALL_URL}submit-photo`, {
+  //       method: 'POST',
+  //       body: JSON.stringify(state.photoSubmissionState),
+  //     })
+  //     .then()
+  //     .catch(err => console.log(err))
 
-  }, [state.photoSubmissionState])
+  // }, [state.photoSubmissionState])
 
   // fetch photos from backend
   useEffect(() => {
