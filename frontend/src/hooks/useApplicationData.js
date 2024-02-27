@@ -3,6 +3,7 @@ import {useReducer, useEffect} from 'react';
 export const INITIAL_STATE = {
   modalDisplayState: false,
   postPhotoModalDisplayState: false,
+  photoSubmissionState: {},
   selectedPhoto: {},
   favPhotoList: [],
   photoData: [],
@@ -25,6 +26,8 @@ export const ACTIONS = {
   SET_DARK_MODE_OFF: "SET_DARK_MODE_OFF",
   SUBMIT_PHOTO: "SUBMIT_PHOTO"
 }
+
+export const API_CALL_URL = "http://localhost:8001/api/"
 
 export function reducer(state, action) {
   switch (action.type) {
@@ -85,18 +88,11 @@ export function reducer(state, action) {
         dark: ""
       }
     case ACTIONS.SUBMIT_PHOTO:
-      console.log(JSON.stringify(action.payload));
-      return(
-      useEffect((e) => {
-        e.preventDefault();
-        fetch("http://localhost:8001/api/submit-photo", {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(action.payload),
-        })
-          .then(() => console.log("made it here"))
-      }, [])
-      )
+      return{
+        ...state,
+        postPhotoModalDisplayState: false,
+        photoSubmissionState: action.payload
+      }
           // .then(() => fetch(`http://localhost:8001/api/photos`))
           // .then((res) => res.json())
           // .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
@@ -113,6 +109,35 @@ export function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   // state contents:
   // modalDisplayState, selectedPhoto, favPhotoList, photoData, topicData, selectedTopic
+
+  // check if a photo has been submitted
+  console.log("state", state.photoSubmissionState)
+  useEffect(() => {
+
+      fetch(`${API_CALL_URL}submit-photo`, {
+        method: 'POST',
+        body: JSON.stringify(state.photoSubmissionState),
+      })
+      .then()
+      .catch(err => console.log(err))
+
+  }, [state.photoSubmissionState])
+
+  // fetch photos from backend
+  useEffect(() => {
+    fetch(`${API_CALL_URL}photos`)
+    .then((res) => res.json())
+    .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
+  }, [state.photoSubmissionState]);
+  
+  // fetch topics from backend
+  useEffect(() => {
+    fetch(`${API_CALL_URL}topics/`)
+    .then((res) => res.json())
+    .then(data => dispatch({type:ACTIONS.SET_TOPIC_DATA, payload: data}))
+  }, []);
+  
+  
 
   return(
     {

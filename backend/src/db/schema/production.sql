@@ -1,23 +1,23 @@
-INSERT INTO USER_ACCOUNT (ID, FULLNAME, USERNAME, PROFILE_URL)
+INSERT INTO USER_ACCOUNT (FULLNAME, USERNAME, PROFILE_URL)
 VALUES 
-  (1, 'John Doe', 'jdoe', 'profile-1.jpg'),
-  (2, 'Alice Wonderland', 'awond', 'profile-2.jpg'),
-  (3, 'Sita Dennis', 'sitad', 'profile-3.jpg'),
-  (4, 'Sasha Mateo', 'matte', 'profile-4.jpg'),
-  (5, 'Anita Austi', 'anita', 'profile-5.jpg'),
-  (6, 'Lukas Souza', 'lsouza', 'profile-6.jpg'),
-  (7, 'Jose Alejandro', 'josea', 'profile-7.jpg'),
-  (8, 'Dwayne Jacob', 'jdwayne', 'profile-8.jpg'),
-  (9, 'Allison Saeng', 'saeng', 'profile-9.jpg'),
-  (10, 'Adrea Santos', 'santa', 'profile-10.jpg');
+  ('John Doe', 'jdoe', 'profile-1.jpg'),
+  ('Alice Wonderland', 'awond', 'profile-2.jpg'),
+  ('Sita Dennis', 'sitad', 'profile-3.jpg'),
+  ('Sasha Mateo', 'matte', 'profile-4.jpg'),
+  ('Anita Austi', 'anita', 'profile-5.jpg'),
+  ('Lukas Souza', 'lsouza', 'profile-6.jpg'),
+  ('Jose Alejandro', 'josea', 'profile-7.jpg'),
+  ('Dwayne Jacob', 'jdwayne', 'profile-8.jpg'),
+  ('Allison Saeng', 'saeng', 'profile-9.jpg'),
+  ('Adrea Santos', 'santa', 'profile-10.jpg');
 
-INSERT INTO TOPIC (ID, TITLE, SLUG)
+INSERT INTO TOPIC (TITLE, SLUG)
 VALUES 
-  (1, 'People', 'people'),
-  (2, 'Nature', 'nature'),
-  (3, 'Travel', 'travel'),
-  (4, 'Animals', 'animals'),
-  (5, 'Fashion', 'fashion');
+  ('People', 'people'),
+  ('Nature', 'nature'),
+  ('Travel', 'travel'),
+  ('Animals', 'animals'),
+  ('Fashion', 'fashion');
 
 INSERT INTO PHOTO (FULL_URL, REGULAR_URL, CITY, COUNTRY, USER_ID, TOPIC_ID)
 VALUES 

@@ -2,7 +2,7 @@ import {React} from "react";
 
 import "../styles/TopicListItem.scss";
 
-import { API_CALL_URL } from "App";
+import { API_CALL_URL } from "hooks/useApplicationData";
 
 const TopicListItem = ({ topic, dispatch, dark }) => {
 
