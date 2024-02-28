@@ -37,9 +37,25 @@
 .top-nav-bar__icons {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 14px;
   
   svg {
     margin-right: 10px;
   }
+}
+
+.top-nav-bar__submit-icon {
+  font-size: 30pt;
+  align-items: center;
+  margin-top: 25px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.top-nav-bar__submit-icon-color {
+  color: #111;
+}
+.top-nav-bar__submit-icon-color-dark {
+  color: rgb(251, 250, 245);
 }

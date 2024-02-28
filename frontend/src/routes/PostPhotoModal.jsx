@@ -3,12 +3,9 @@ import '../styles/PostPhotoModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg'
 import closeSymbolDark from '../assets/closeSymbolDark.svg'
 
-const reader = new FileReader();
-
 const PostPhotoModal = ({dispatch, dark}) => {
 
   const submitPhotoData = new FormData()
-
 
   return(
     <div className={`post-photo-modal post-photo-modal-color${dark}`}>
@@ -19,20 +16,21 @@ const PostPhotoModal = ({dispatch, dark}) => {
 
       <form>
         <div>
-          <h1 className="post-photo-modal__section-header">Name & User Information</h1>
-          <input
-            name="nameInput"
-            placeholder="Full Name"
-            onChange={(e) => submitPhotoData.set('name', e.target.value)}
-          />
-          <input
-            name="usernameInput"
-            placeholder="Username"
-            onChange={(e) => submitPhotoData.set('username', e.target.value)}
-          />
+          <h1 className={`post-photo-modal__section-header post-photo-modal__font-color${dark}`}>Currently Logged In As</h1>
+          <div className="post-photo-modal__user-details">
+            <img
+            src='http://localhost:8001/images/profile-1.jpg'
+            alt="Photographer profile image"
+            className="post-photo-modal__user-profile"
+            ></img>
+            <div className="post-photo-modal__user-info">
+              <p className={`post-photo-modal__font-color${dark}`}>jdoe</p>
+              <p className={`post-photo-modal__font-color${dark}`}>John Doe</p>
+            </div>
+          </div>
         </div>
         <div>
-          <h1 className="post-photo-modal__section-header">Location Information</h1>
+          <h1 className={`post-photo-modal__section-header post-photo-modal__font-color${dark}`}>Location Information</h1>
           <input
             name="cityInput"
             placeholder="City"
@@ -45,7 +43,7 @@ const PostPhotoModal = ({dispatch, dark}) => {
           />
         </div>
         <div>
-          <h1 className="post-photo-modal__section-header">Photo Submission</h1>
+          <h1 className={`post-photo-modal__section-header post-photo-modal__font-color${dark}`}>Photo Submission</h1>
           <input
             name="photoFile"
             type="file"
@@ -63,8 +61,11 @@ const PostPhotoModal = ({dispatch, dark}) => {
             method: 'POST',
             body: submitPhotoData, 
           })
-          // dispatch({ type: "SUBMIT_PHOTO", payload: submitPhotoObject})
-        }}>Submit</button>
+          .then((res) => res.json())
+          .then((data) => dispatch({type:'SUBMIT_PHOTO', payload: data}))  
+          .catch((err) => console.log("Error: ", err))
+          }
+        }>Submit</button>
       </form>
     </div>
   )

@@ -4,7 +4,7 @@ import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
 import DarkMode from './DarkMode';
-import PostPhotoModal from 'routes/PostPhotoModal';
+
 
 const TopNavigationBar = ({ topics, favPhotoList, dispatch, dark }) => {
 
@@ -16,11 +16,10 @@ const TopNavigationBar = ({ topics, favPhotoList, dispatch, dark }) => {
       <div className="top-nav-bar__icons">
         <TopicList topics={topics} dispatch={dispatch} dark={dark}/>
         <div onClick={() => dark ? dispatch({type: 'SET_DARK_MODE_OFF'}) : dispatch({type: 'SET_DARK_MODE_ON'})}>
-          <DarkMode dark={dark} />
+        <DarkMode dark={dark} />
         </div>
         <FavBadge isFavPhotoExist={isFavPhotoExist} />
-        <p onClick={() => dispatch({type: 'OPEN_SUBMIT_PHOTO_MODAL'})}>+</p>
-
+        <p className={`top-nav-bar__submit-icon top-nav-bar__submit-icon-color${dark}`} onClick={() => dispatch({type: 'OPEN_SUBMIT_PHOTO_MODAL'})}>+</p>
       </div>
     </div>
   )

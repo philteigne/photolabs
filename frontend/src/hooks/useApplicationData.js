@@ -93,9 +93,6 @@ export function reducer(state, action) {
         postPhotoModalDisplayState: false,
         photoSubmissionState: action.payload
       }
-          // .then(() => fetch(`http://localhost:8001/api/photos`))
-          // .then((res) => res.json())
-          // .then(data => dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: data}))
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -109,19 +106,6 @@ export function useApplicationData() {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
   // state contents:
   // modalDisplayState, selectedPhoto, favPhotoList, photoData, topicData, selectedTopic
-
-  // check if a photo has been submitted
-  console.log("state", state.photoSubmissionState)
-  // useEffect(() => {
-
-  //     fetch(`${API_CALL_URL}submit-photo`, {
-  //       method: 'POST',
-  //       body: JSON.stringify(state.photoSubmissionState),
-  //     })
-  //     .then()
-  //     .catch(err => console.log(err))
-
-  // }, [state.photoSubmissionState])
 
   // fetch photos from backend
   useEffect(() => {
