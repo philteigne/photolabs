@@ -120,8 +120,6 @@ export function useApplicationData() {
     .then((res) => res.json())
     .then(data => dispatch({type:ACTIONS.SET_TOPIC_DATA, payload: data}))
   }, []);
-  
-  
 
   return(
     {

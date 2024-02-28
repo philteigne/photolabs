@@ -14,8 +14,6 @@ const App = () => {
 
   const { state, dispatch } = useApplicationData();
 
-  console.log("state.postPhotoModalDisplayState", state.postPhotoModalDisplayState)
-
   return(
   <div className={`App App-color${state.dark}`}>
     <HomeRoute
