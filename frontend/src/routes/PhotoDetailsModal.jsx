@@ -9,8 +9,10 @@ import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, dark, modalDisplayState }) => {
 
-  const similarPhotos = Object.values(selectedPhoto.similar_photos)
-
+  selectedPhoto = photoData.find(key => key.id === selectedPhoto.id);
+  
+  const similarPhotos = Object.values(selectedPhoto.similar_photos) || [];
+  
   return (
     <div className={`photo-details-modal photo-details-modal-color${dark}`}>
     
@@ -41,7 +43,7 @@ const PhotoDetailsModal = ({ favPhotoList, photoData, selectedPhoto, dispatch, d
         
         <h3 className={`photo-details-modal__header photo-details-modal__header-color${dark}`}>Similar Photos</h3>
         <div className="photo-details-modal__images">
-          <PhotoList photos={similarPhotos} photoData={photoData} favPhotoList={favPhotoList} dispatch={dispatch} dark={dark} modalDisplayState={modalDisplayState}/> 
+          <PhotoList photoData={similarPhotos} favPhotoList={favPhotoList} dispatch={dispatch} dark={dark} modalDisplayState={modalDisplayState}/> 
         </div>
       </div>
         
