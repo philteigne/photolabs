@@ -121,6 +121,19 @@ export function useApplicationData() {
     .then(data => dispatch({type:ACTIONS.SET_TOPIC_DATA, payload: data}))
   }, []);
 
+  // scroll to modal
+  useEffect(() => {
+    window.scrollTo({
+      top: 300,
+      left: 0,
+      behavior: "smooth"
+    })
+
+    if (state.modalState) {
+      document.querySelector('.photo-details-modal').scrollTop = 0
+    }
+  }, [state.modalDisplayState])
+
   return(
     {
       state,
